@@ -5,9 +5,9 @@ This is a short example of a docker for orbit running on xavante.
 
 Build
 ======
-
+```
 docker build -t orbit-docker .
-
+```
 Run
 ======
 
