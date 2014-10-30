@@ -18,5 +18,7 @@ RUN luarocks install luajson
 RUN luarocks install markdown
 RUN luarocks install https://raw.github.com/keplerproject/orbit/master/rockspec/orbit-2.2.1-1.rockspec
 
+COPY config/lighttpd.conf /etc/lighttpd
+
 EXPOSE  80
 ENTRYPOINT ["/usr/sbin/lighttpd", "-D", "-f", "/etc/lighttpd/lighttpd.conf"]

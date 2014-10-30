@@ -14,7 +14,7 @@ Run
 You can start the lighttpd server running orbit with
 
 ```
-docker run -d -v `pwd`/config:/etc/lighttpd -v `pwd`/app:/var/www -p 80:80 harmonics/orbit
+docker run -d -v `pwd`/app:/var/www -p 80:80 harmonics/orbit
 
 ```
 
