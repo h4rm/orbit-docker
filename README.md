@@ -1,7 +1,7 @@
 orbit-docker
 ============
 
-This is a short example of a docker for orbit running on xavante.
+This is a short example of a docker for orbit running on lighttpd.
 
 Build
 ======
@@ -11,17 +11,18 @@ docker build -t orbit-docker .
 Run
 ======
 
-You can start the orbit xavante server running orbit with
+You can start the lighttpd server running orbit with
 
 ```
-docker run -p 8080:8080 -d -v=`pwd`:/home -w=/home orbit-docker
+docker run -d -v `pwd`:/etc/lighttpd -v `pwd`/app:/var/www -p 80:80 orbit-docker
+
 ```
 
 and access your website on
 
-http://localhost:8080/page.lua
+http://localhost
 
-when you have the page.lua in your current directory.
+when you have the `hello.lua` in the `app` directory. You can modify the lighttpd config to support more extension or different document roots.
 
 Notes
 =======

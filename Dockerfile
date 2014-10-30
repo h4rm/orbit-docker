@@ -1,7 +1,8 @@
 # DOCKER-VERSION 0.3.4
-FROM ubuntu
+FROM google/debian:wheezy
 
-RUN apt-get update && apt-get install -y luarocks sqlite3 libsqlite3-dev git libssl-dev libssl1.0.0 libfcgi-dev vim
+RUN apt-get -o Acquire::Check-Valid-Until=false update
+RUN apt-get install -y luarocks sqlite3 libsqlite3-dev git libssl-dev libssl1.0.0 libfcgi-dev vim lighttpd
 RUN apt-get clean
 
 RUN luarocks install luasocket
@@ -18,5 +19,5 @@ RUN luarocks install luajson
 RUN luarocks install markdown
 RUN luarocks install https://raw.github.com/keplerproject/orbit/master/rockspec/orbit-2.2.1-1.rockspec
 
-EXPOSE  8080
-CMD ["/usr/local/bin/wsapi", "--reload"]
+EXPOSE  80
+ENTRYPOINT ["/usr/sbin/lighttpd", "-D", "-f", "/etc/lighttpd/lighttpd.conf"]
