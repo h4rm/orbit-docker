@@ -6,7 +6,7 @@ This is a short example of a docker for orbit running on lighttpd.
 Build
 ======
 ```
-docker build -t orbit-docker .
+docker build -t harmonics/orbit .
 ```
 Run
 ======
@@ -14,7 +14,7 @@ Run
 You can start the lighttpd server running orbit with
 
 ```
-docker run -d -v `pwd`:/etc/lighttpd -v `pwd`/app:/var/www -p 80:80 orbit-docker
+docker run -d -v `pwd`:/etc/lighttpd -v `pwd`/app:/var/www -p 80:80 harmonics/orbit
 
 ```
 
