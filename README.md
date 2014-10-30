@@ -14,7 +14,7 @@ Run
 You can start the lighttpd server running orbit with
 
 ```
-docker run -d -v `pwd`:/etc/lighttpd -v `pwd`/app:/var/www -p 80:80 harmonics/orbit
+docker run -d -v `pwd`/config:/etc/lighttpd -v `pwd`/app:/var/www -p 80:80 harmonics/orbit
 
 ```
 
@@ -22,7 +22,7 @@ and access your website on
 
 http://localhost
 
-when you have the `hello.lua` in the `app` directory. You can modify the lighttpd config to support more extension or different document roots.
+when you have the `hello.lua` in the `app` directory. You can modify the lighttpd config `config/lighttpd.conf` to support more extension or different document roots.
 
 Notes
 =======
