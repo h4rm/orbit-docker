@@ -1,8 +1,7 @@
 # DOCKER-VERSION 0.3.4
-FROM google/debian:wheezy
+FROM ubuntu
 
-RUN apt-get -o Acquire::Check-Valid-Until=false update
-RUN apt-get install -y luarocks sqlite3 libsqlite3-dev git libssl-dev libssl1.0.0 libfcgi-dev vim lighttpd
+RUN apt-get update && apt-get install -y luarocks sqlite3 libsqlite3-dev git libssl-dev libssl1.0.0 libfcgi-dev vim lighttpd
 RUN apt-get clean
 
 RUN luarocks install luasocket
